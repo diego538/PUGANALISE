@@ -109,7 +109,7 @@ def handle_ticker_input(message):
 # help fallback
 @bot.message_handler(func=lambda m: True)
 def fallback(m):
-    bot.send_message(m.chat.
-
-🐉, [07.12.2025 23:46]
-id, "Чтобы запустить анализ — введи /start и следуй инструкциям.")
+    bot.send_message(
+        m.chat.id,
+        "Чтобы запустить анализ — введи /start и следуй инструкциям."
+    )
