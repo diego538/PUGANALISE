@@ -1,13 +1,14 @@
 import os
 import telebot
+from dotenv import load_dotenv
 
-def _get_env(key):
-    v = os.getenv(key)
-    return v.strip() if v else None
 
-BOT_TOKEN = _get_env("BOT_TOKEN")
+load_dotenv()
 
-if not BOT_TOKEN:
-    raise ValueError("❌ BOT_TOKEN не найден в переменных окружения BotHost! Добавь BOT_TOKEN в Settings → Environment Variables")
 
-bot = telebot.TeleBot(BOT_TOKEN, parse_mode=None)
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+raise RuntimeError("❌ BOT_TOKEN не задан в окружении")
+
+
+bot = telebot.TeleBot(TOKEN, parse_mode="Markdown")
