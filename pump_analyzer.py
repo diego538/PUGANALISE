@@ -1,4 +1,16 @@
 import requests
+"interval": interval,
+"limit": limit,
+}
+r = requests.get(url, params=params, timeout=10)
+r.raise_for_status()
+data = r.json()
+return data["result"]["list"]
+
+
+
+
+def _get_orderbook(symbol: str, limit=50):
 url = f"{BASE_URL}/v5/market/orderbook"
 params = {
 "category": "spot",
